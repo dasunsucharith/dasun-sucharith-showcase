@@ -6,6 +6,8 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -15,6 +17,8 @@ const Navigation = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
+    if (typeof document === 'undefined') return;
+
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });

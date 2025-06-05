@@ -22,8 +22,10 @@ const Contact = () => {
     const subject = `Portfolio Contact: Message from ${formData.name}`;
     const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
     const mailtoLink = `mailto:contact@dasunsucharith.me?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    window.location.href = mailtoLink;
+
+    if (typeof window !== 'undefined') {
+      window.location.href = mailtoLink;
+    }
     
     toast({
       title: "Email client opened!",

@@ -4,6 +4,8 @@ import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
+    if (typeof document === 'undefined') return;
+
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
